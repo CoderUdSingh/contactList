@@ -35,7 +35,6 @@ const AddEdit = () => {
     // If component is accessed from the Add Contact Button
     else {
       try {
-        console.log("formBody in submit", JSON.stringify(formBody));
 
         const response = await fetch(
           "https://jsonplaceholder.typicode.com/users",
@@ -51,7 +50,6 @@ const AddEdit = () => {
           throw new Error("Failed to add contact");
         }
         const newcontact = await response.json();
-        console.log("new contact received", newcontact);
         setAllcontacts([...allContacts, newcontact]);
         navigate("/");
       } catch (error) {

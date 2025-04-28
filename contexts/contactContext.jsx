@@ -17,7 +17,6 @@ export const ContactContextProvider = ({ children }) => {
       try {
         const data = await fetch("https://jsonplaceholder.typicode.com/users");
         const finalContacts = await data.json();
-        console.log("final contacts", finalContacts);
         setAllcontacts((prev) => [...prev, ...finalContacts]);
         // setAllcontacts([...allContacts, ...finalContacts]);
         setLoading(false);
@@ -28,7 +27,6 @@ export const ContactContextProvider = ({ children }) => {
     }
     fetchData();
   }, []);
-  console.log("here are all contacts", allContacts);
 
   return (
     <contactContext.Provider value={{ allContacts, setAllcontacts, loading }}>

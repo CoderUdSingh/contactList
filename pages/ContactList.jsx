@@ -9,12 +9,10 @@ const ContactList = () => {
   const handleDelete = (id) => {
     const dummyContacts = [...allContacts];
     const index = dummyContacts.findIndex((item) => item.id == id);
-    console.log("index", index);
 
     if (index != -1) {
       dummyContacts.splice(index, 1);
     }
-    console.log(dummyContacts);
 
     setAllcontacts([...dummyContacts]);
   };
