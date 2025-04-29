@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContacts } from "../contexts/contactContext";
 
@@ -28,14 +28,13 @@ const AddEdit = () => {
         setAllcontacts([...contactsArr]);
         navigate("/");
       } catch (error) {
-        console.log("error in updating contact");
+        console.log("error in updating contact", error);
         navigate("/");
       }
     }
     // If component is accessed from the Add Contact Button
     else {
       try {
-
         const response = await fetch(
           "https://jsonplaceholder.typicode.com/users",
           {
@@ -53,7 +52,7 @@ const AddEdit = () => {
         setAllcontacts([...allContacts, newcontact]);
         navigate("/");
       } catch (error) {
-        console.log("error in adding contact");
+        console.log("error in adding contact", error);
         navigate("/");
       }
     }
